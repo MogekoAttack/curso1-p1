@@ -1,0 +1,13 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if text == none %}
+        <h1>EL ARITCULO "{{ title }}" NO EXISTE</h1>
+    {% elif text != none %}
+        {{ text }}
+    {% endif %}
+{% endblock %}
