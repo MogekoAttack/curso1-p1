@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    {% if content == none %}
+        <h1 style="background-color: red; font-weight: bolder; width:fit-content;">Este contenido no existe</h1>
+    {% elif content != none %}
+        <h1>Edit page: {{ title }} </h1>
+        <form action="{% url 'edit_info' title=title %}" method="post" style="display: flex; flex-direction: column; width: 60vh;">
+            {% csrf_token %}
+            <textarea name="entry" id="entry" cols="30" rows="10">{{ content }}</textarea>
+            <button>Edit</button>
+        </form>
+    
+    {% endif %}
+{% endblock %}

@@ -5,5 +5,13 @@
 {% endblock %}
 
 {% block body %}
+    {% if exist != "" %}
+        <h1 style="background-color: red; font-weight: bolder; width:fit-content;">{{ exist }}</h1>
+    {% endif %}
     <h1>Create new page/entry</h1>
+    <form action="{% url 'new' %}" method="post" style="display: flex; flex-direction: column; width: 60vh;">
+        {% csrf_token %}
+        {{ form }}
+        <button>Create</button>
+    </form>
 {% endblock %}

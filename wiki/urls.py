@@ -21,8 +21,11 @@ from encyclopedia import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("encyclopedia.urls")),
-    path('wiki/', views.index),
+    path('wiki/', views.index, name='index'),
     path('wiki/<str:title>', views.get_page),
     path('search/', views.search, name='search'),
-    path('new/', views.new_page, name='new_page'),
+    path('new', views.new_page, name='new'),
+    path('edit/<str:title>', views.edit_page, name='edit'),
+    path('edit_info/<str:title>', views.edit_page_info, name="edit_info"),
+    path('random/', views.random, name="random"),
 ]
